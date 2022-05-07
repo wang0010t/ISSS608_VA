@@ -1,24 +1,57 @@
 ---
-title: "Untitled"
+title: "In-Class Ex04"
 description: |
-  A new article created using the Distill format.
+  In-Class Exercise 04
 author:
-  - name: Nora Jones 
-    url: https://example.com/norajones
-    affiliation: Spacely Sprockets
-    affiliation_url: https://example.com/spacelysprokets
+  - name: Wang Tianqi
+    
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE, evaluation = TRUE, message = FALSE, warning = FALSE, fig.retina = 3)
+
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web. 
+# Getting Started
 
-Learn more about using Distill for R Markdown at <https://rstudio.github.io/distill>.
+## Setting up R packages
 
+To start with, [ggstatsplot](https://indrajeetpatil.github.io/ggstatsplot/) and tidyverse packages will be launched using libarary().
+
+```{r}
+packages = c('ggstatsplot', 'tidyverse')
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+}
+
+```
+
+## Importing data
+
+```{r}
+exam <- read_csv("data/Exam_data.csv")
+
+```
+
+## Working with ggstatsplot
+
+### ANOVA Test
+
+```{r, fig.width=6, fig.height=8}
+set.seed(1234)
+
+ggbetweenstats(
+  data=exam,
+  x=RACE,
+  y=ENGLISH,
+  type = "bayes"
+  
+)
+```
 
 
 
