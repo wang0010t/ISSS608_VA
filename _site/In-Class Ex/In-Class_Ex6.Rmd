@@ -56,6 +56,10 @@ employers <- read_sf("data/employers.csv",
 
 restaurants <- read_sf("data/restaurants.csv", 
                    options = "GEOM_POSSIBLE_NAMES=location")
+
+
+buildings_shp <- read_sf("data/buildings.shp", 
+                   options = "GEOM_POSSIBLE_NAMES=location")
 ```
 
 ## 
@@ -69,6 +73,16 @@ tm_polygons(col = "grey60",
            size = 1,
            border.col = "black",
            border.lwd = 1)
+
+
+ggplot(buildings_shp)+
+  geom_sf(aes(fill = region),
+          color = "black",
+          size = 0.1,
+          show.legend = TRUE) +
+  coord_sf()+
+  theme_bw()+
+  labs(title = "Geographical region of the study area")
 
 
 ```
