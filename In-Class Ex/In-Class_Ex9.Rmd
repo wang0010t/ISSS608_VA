@@ -147,7 +147,7 @@ product %>%
               width = 60,
               palette = c("lightblue", 
                           "black")) %>%
-  gt_theme_538()
+  gt_theme_nytimes()
 
 
 ```
@@ -213,7 +213,7 @@ sales <- report %>%
             "Average" = mean(Sales, na.rm = T)
             )
 
-sales_data = left_join(sales, spark)
+sales_data <- left_join(sales, spark)
 
 
 ```
@@ -236,7 +236,7 @@ bullet <- coffeechain %>%
             `Actual` = sum(`Sales`)) %>%
   ungroup()
 
-sales_data = sales_data %>%
+sales_data <- sales_data %>%
   left_join(bullet)
 
 sales_data %>%
@@ -247,7 +247,7 @@ sales_data %>%
                 width = 28,
                 palette = c("lightblue", 
                           "black")) %>%
-  gt_theme_538()
+  gt_theme_nytimes()
 ```
 
 ## Interactive Information Dashboard Design: reactable and reactablefmtr methods
